@@ -66,8 +66,8 @@ def register():
 @user_bp.route('/dashboard',methods=['GET','POST'])
 @login_required
 def user_dashboard():
-    ParkingLot = Parking_lot.query.filter_by(address=current_user.address).all()
-    location=current_user.address
+    ParkingLot = Parking_lot.query.all()
+    location=""
     history = ReserveParkingSpot.query.filter_by(user_id=current_user.id).all()
     if not history:
         history=""
@@ -79,7 +79,7 @@ def user_dashboard():
             if not ParkingLot:
                 ParkingLot = Parking_lot.query.filter_by(address=search).all()
         else:
-            ParkingLot=""
+            ParkingLot= ""
            
     return render_template('user/dashboard.html', user=current_user, parking_lots=ParkingLot,location=location,history=history)
 
