@@ -1,0 +1,68 @@
+{% extends 'user/user_base.html' %}
+{% block css %}
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/user_css/dashboard.css') }}">
+{% endblock css %}
+{% block body_user %}
+      <div class="history">
+      <h2>Recent Parking History</h2>
+     
+      <table>
+            <thead>
+                  <tr>
+                        <th style="border-radius:10px 0px 0px 0px;">Parking Lot Name</th>
+                        <th>Address</th>
+                        <th>Vehicle Number</th>
+                        <th>TimeStamp</th>
+                        <th style="border-radius:0px 10px 0px 0px;">Action</th>
+                  </tr>
+            </thead>
+           <tbody>
+                  {% for reservation in history|reverse %}
+                  <tr>
+                  <td>{{ reservation.parking_spot.parking_lot.name }}</td>
+                  <td>{{ reservation.location }}</td>
+                  <td>{{ reservation.vehicle_number }}</td>
+                  <td>{{ reservation.parking_timestamp.strftime('%d %b %Y, %H:%M') }}</td>
+                  {% if reservation.status == 'A' %}
+                  <td><a href="/user/release/{{reservation.id}}" class="release">Release</a></td>
+                  {% else %}
+                  <td><a class="parked-out">Parked out</a></td>
+                  {% endif %}
+                  </tr>
+                  {% endfor %}
+            </tbody>
+
+      </table>
+       </div>
+      <hr/>
+      
+      <form action="/user/dashboard" method="post" class="search-form">
+              <label for="search">Search Parking Lot:</label>
+              <input type="text" id="search" name="search" placeholder="Enter location">
+              <button type="submit">Search</button>
+      </form>
+      <h2> Parking Lots @ {{ location }}</h2>
+      <table>
+          <thead>
+                  <tr>
+                        <th style="border-radius:10px 0px 0px 0px;">Parking Lot Name</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Available Spots</th>
+                        <th style="border-radius:0px 10px 0px 0px;">Action</th>
+                  </tr>
+          </thead>   
+              <tbody>
+                    {% for parking_lot in parking_lots %}
+                    {% if parking_lot.max_spots - parking_lot.occupied_spots > 0 %}
+                    <tr>
+                              <td>{{ parking_lot.name }}</td>
+                              <td>{{ parking_lot.address }}</td>
+                              <td>{{ parking_lot.price }}</td>
+                              <td>{{ parking_lot.max_spots - parking_lot.occupied_spots }}</td>
+                              <td><a href="/user/reserve/{{parking_lot.id}}">Book</a></td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+      </table>
+{% endblock body_user %}

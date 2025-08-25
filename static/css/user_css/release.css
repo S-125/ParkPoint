@@ -1,0 +1,75 @@
+/* Page layout */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.8rem;
+    color: #0077b6;
+}
+
+/* Details section */
+p {
+    max-width: 500px;
+    margin: 8px auto;
+    padding: 12px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Bold labels */
+p strong {
+    color: #005f86;
+}
+
+/* Form layout */
+form {
+    max-width: 500px;
+    margin: 25px auto;
+    text-align: center;
+}
+
+/* Buttons */
+form button,
+form a {
+    display: inline-block;
+    padding: 10px 18px;
+    margin: 8px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+/* Confirm button */
+form button {
+    background-color: #0077b6;
+    color: white;
+}
+
+form button:hover {
+    background-color: #005f86;
+}
+
+/* Cancel button (anchor styled as button) */
+form a {
+    background-color: #d9534f;
+    color: white;
+}
+
+form a:hover {
+    background-color: #b52b27;
+}

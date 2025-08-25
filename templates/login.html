@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParkPoint - Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
+</head>
+<body>
+  <div class="login-box">
+    <img
+      src="{{ url_for('static', filename='images/parkpoint_logo.png') }}"
+      alt="ParkPoint Logo"
+      class="logo"
+    />
+
+    <h2 class="title">Login</h2>
+    <form method="POST" action="{{ url_for('home') }}">
+      <label for="email">Registered Email ID:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+          <div style="color: red">{{ message }}</div>
+        {% endfor %}
+      {% endwith %}
+      <div style="display:flex; gap:5px;">
+      <button type="submit" name="role" value="user" style="width:100%;">
+        Login as User
+      </button>
+      <button type="submit" name="role" value="admin" style="width:100%;">
+        Login as Admin
+      </button>
+      </div>
+      <button type="button" onclick="window.location.href='{{ url_for('user_bp.reset') }}'">
+        Reset
+      </button>
+    </form>
+    <a href="{{ url_for('user_bp.register') }}" class="create-account">Create Account?</a>
+  </div>
+</body>
+</html>

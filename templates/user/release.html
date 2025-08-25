@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Release Parking Spot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_css/release.css') }}">
+</head>
+<body>
+    <h1>Release Parking Spot</h1>
+
+   
+    <p><strong>Vehicle Number:</strong> {{ reservation.vehicle_number }}</p>
+    <p><strong>Parking Lot Location:</strong> {{ reservation.location }}</p>
+    <p><strong>Parking Spot ID:</strong> {{ reservation.spot_id }}</p>
+    <p><strong>Parking Time:</strong> {{ reservation.parking_timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    <p><strong>Leaving Time:</strong> {{ leavetime.strftime('%Y-%m-%d %H:%M:%S')}}</p>
+    <p><strong>Total Cost:</strong> {{ total_cost }}</p>
+    
+    <form method="POST">
+        <button type="submit">Confirm Release</button>
+        <a href="{{ url_for('user_bp.user_dashboard') }}">Cancel</a>
+    </form>
+</body>
+</html>

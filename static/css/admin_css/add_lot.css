@@ -1,0 +1,135 @@
+/* ===== GLOBAL STYLES ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F5FAFF; /* Light background from dashboard */
+    margin: 0;
+    padding: 0;
+    color: #222; /* Dark text */
+}
+
+/* ===== CONTAINER ===== */
+h2{
+    text-align: center;
+}
+form {
+    max-width: 420px;
+    margin: 50px auto;
+    padding: 25px 35px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== HEADING ===== */
+form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #3A7D90, #2B6B7D);
+
+}
+
+/* ===== LABELS ===== */
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+    color: #1E73BE; /* Dashboard blue */
+}
+
+/* ===== INPUT FIELDS ===== */
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    border-color: #1E73BE;
+    outline: none;
+    box-shadow: 0 0 4px rgba(30,115,190,0.4);
+}
+
+/* ===== ERROR MESSAGES ===== */
+#usernameError, #emailError {
+    font-size: 0.85rem;
+    color: #E74C3C; /* Red from dashboard */
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+
+/* ===== FLASH MESSAGES ===== */
+form div {
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.success {
+    background-color: rgba(30, 115, 190, 0.1);
+    color: #1E73BE;
+}
+
+.error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #E74C3C;
+}
+
+/* ===== BUTTONS ===== */
+button,a {
+    width: 48%;
+    height: 2.583rem;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+
+button[type="submit"] {
+    background-color: #1E73BE; /* Blue */
+    color: #fff;
+}
+
+button[type="submit"]:hover {
+    background-color: #155A92;
+}
+
+.cancel {
+    background-color: #E74C3C; /* Red */
+    color: #fff;
+}
+
+.cancel {
+    background-color: #c0392b;
+}
+
+/* ===== BUTTON LAYOUT ===== */
+form button + button {
+    margin-left: 4%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    form button + button {
+        margin-left: 0;
+    }
+}

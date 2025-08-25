@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/user_css/profile.css') }}"
+  />
+
+  <title>User Profile</title>
+</head>
+<body>
+
+  <form action="/user/profile" method="post">
+    <h2>User Profile</h2>
+
+    <label for="username" style="margin-top:1rem;">Username:</label><br>
+    <input type="text" id="username" name="username" value="{{ user.full_name }}" required><br>
+    <div id="usernameError"></div><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" value="{{ user.email }}" required><br>
+    <div id="emailError"></div><br>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div>{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    <button type="submit">Save Changes</button>
+    <button type="button" onclick="window.location.href='/user/dashboard'">Cancel</button>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+
+
+# Distribution folder
+.dist/
+
+# Flask instance folder (for config, secrets, etc.)
+instance/
+
+# Editor files
+.vscode/
+*.swp
+
+# Environment variables and secrets
+.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

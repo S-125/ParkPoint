@@ -1,0 +1,31 @@
+  .summary-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .charts-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+  }
+
+  .chart-box {
+    min-width: 300px;
+    width: auto;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #fff;
+  }
+
+  .chart-title {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+#statusChart {
+  height: 200px !important;  /* or whatever height you want */
+  width: 100% !important;    /* keep full width or customize */
+}
+

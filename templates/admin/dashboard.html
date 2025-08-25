@@ -1,0 +1,31 @@
+{% extends 'admin/admin_base.html' %}
+{% block body_admin %}
+<div id="content" class="dashboard-content">
+    <h1 style="margin-left: 20px;">Admin Dashboard</h1>
+<div class="parkinglots">
+    {% for lot in lots %}
+          <div class="lot_card"> 
+            <h2>{{lot.name}}</h2>
+           <div style="display:flex;"> <a  href="/admin/edit_lot/{{lot.id}}" style="border:0.5px solid #1f4e8c; width:3rem; height:1rem; cursor:pointer;" >
+            Edit</a> <a href="/admin/delete_lot/{{lot.id}}" style="margin-left:1rem;border:0.5px solid red;  ">Delete</a></div>
+            <p>Occupied: {{lot.occupied_spots}}/{{lot.max_spots}}</p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; margin:1rem; justify-content:center;">
+            {% for spot in lot.spots %}
+                  <a href="/admin/details/{{spot.id}}" class="spotbox {{spot.status}}">{{spot.status}}</a>
+                
+            {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    
+</div>
+<div class="add-btn">
+<a href="/admin/add_lot">Add a Lot</a>
+<a href="/admin/delete_all">Delete All</a>
+</div>
+
+</div>
+
+  
+
+{% endblock body_admin%}

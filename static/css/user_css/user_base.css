@@ -1,0 +1,78 @@
+/* user_base.css - Blue theme to match login */
+
+/* Reset defaults */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+}
+
+/* Navigation bar */
+nav {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af); /* Same gradient as login */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  color: white;
+  flex-wrap: wrap;
+}
+
+nav p {
+  margin: 0;
+  font-weight: bold;
+}
+
+nav .group {
+  display: flex;
+  align-items: center;
+}
+
+nav .group a {
+  color: white;
+  padding: 8px 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+nav .group a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+nav > a {
+  background-color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav > a:hover {
+  background-color: #eee;
+}
+
+/* Main content area */
+main {
+  padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav .group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav .group a {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+}

@@ -1,0 +1,45 @@
+{% extends 'admin/extra_base.html' %}
+{%block title%}Edit Lot{%endblock title%}
+{% block extra_css %}
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/admin_css/add_lot.css') }}"
+  />
+{% endblock extra_css %}
+{% block block_extra %}
+    <div class="add_form" id="add_form">
+        <div class="form-content">
+          <h2>Edit Parking Lot</h2>
+          <form action="/admin/edit_lot/{{lot.id}}" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{lot.name}}" required>
+            <div id="nameError" style="color: red; font-size: 0.9em; margin-top: 5px;"></div>
+      
+            <label for="prime_location">Prime Location:</label>
+            <input type="text" id="prime_location" name="prime_location" value="{{lot.prime_location}}" required>
+            <div id="primeLocationError" style="color: red; font-size: 0.9em; margin-top: 5px;"></div>
+      
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" value="{{lot.price}}" required>
+            <div id="priceError" style="color: red; font-size: 0.9em; margin-top: 5px;"></div>
+      
+            <label for="address">Address:</label>
+            <textarea type="text" id="address" name="address" >{{lot.address}}</textarea>
+            <div id="addressError" style="color: red; font-size: 0.9em; margin-top: 5px;"></div>
+      
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" value="{{lot.pincode}}">
+            <div id="pincodeError" style="color: red; font-size: 0.9em; margin-top: 5px;"></div>
+      
+            <label for="max_spots">Maximum Spots:</label>
+            <input type="number" id="max_spots" name="max_spots"  value="{{lot.max_spots}}" min="{{lot.occupied_spots}}" required>
+            <div id="maxSpotsError" style="color: red; font-size: 0.9em; margin-top: 5px;"></div>
+      
+            <button type="submit">Save Changes</button>
+            <a href="/admin/dashboard" class="cancel">Cancel</a>
+          </form>
+        </div>
+      </div>
+      
+    
+{% endblock block_extra %}

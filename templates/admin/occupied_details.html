@@ -1,0 +1,47 @@
+{% extends "admin/extra_base.html" %}
+{%block title%}Occupied Spot{%endblock title%}
+{% block extra_css %}
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/admin_css/spot_details.css') }}"
+  />
+{% endblock extra_css %}
+
+{% block block_extra %}
+    
+
+  <div class="details">
+    <h2>Occupied Parking Spot Details</h2>
+
+    <div class="detail">
+      <label for="id">Reservation ID :</label>
+      <p class="detail-box">{{ reservation.id }}</p>
+    </div>
+     <div class="detail">
+      <label for="userid">Customer ID :</label>
+      <p class="detail-box">{{ reservation.user_id }}</p>
+    </div>
+     <div class="detail">
+      <label for="carno">Vehicle Number :</label>
+      <p class="detail-box">{{ reservation.vehicle_number }}</p>
+    </div>
+     <div class="detail">
+      <label for="parkingtime">Time of Parking :</label>
+      <p class="detail-box">{{ reservation.parking_timestamp }}</p>
+    </div>
+     <div class="detail">
+      <label for="cost">Cost per unit time :</label>
+      <p class="detail-box">{{ reservation.parking_cost_per_unit_time }}</p>
+    </div>
+
+   
+
+    <!-- Buttons -->
+    <div class="button-row">
+      <a href="{{ url_for('admin_bp.admin_dashboard') }}">
+        <button type="button">Close</button>
+      </a>
+    </div>
+  </div>
+
+  {% endblock block_extra %}

@@ -1,0 +1,90 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_css/summary.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock css %}
+
+{% block body_admin %}
+<div class="summary-container">
+  <h2 style="color: #2c3e50;">Summary shows Statistical Charts</h2>
+  <h3>Total Revenue: ₹{{ total_revenue }}</h3>
+
+  <div class="charts-row">
+    <!-- Revenue Doughnut Chart -->
+    <div class="chart-box">
+      <div class="chart-title">Revenue from each parking lot</div>
+      <canvas id="revenueChart"></canvas>
+    </div>
+
+    <!-- Bar Chart for Available & Occupied -->
+    <div class="chart-box">
+      <div class="chart-title">Summary on available and occupied parking lots</div>
+      <canvas id="statusChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Doughnut Chart - Revenue
+  const ctx = document.getElementById('revenueChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: {{ labels | tojson }},
+      datasets: [{
+        label: 'Revenue',
+        data: {{ values | tojson }},
+        backgroundColor: [
+          '#0f766e', // deep teal
+          '#14b8a6', // light teal
+          '#10b981', // emerald
+          '#047857', // dark green
+          '#2dd4bf'  // aqua
+        ],
+        borderColor: '#fff',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      cutout: '60%',
+      plugins: {
+        legend: { display: true, position: 'bottom' },
+      }
+    }
+  });
+
+  // Bar Chart - Status
+  const statusCtx = document.getElementById('statusChart').getContext('2d');
+  new Chart(statusCtx, {
+    type: 'bar',
+    data: {
+      labels: {{ status_labels | tojson }},
+      datasets: [
+        {
+          label: 'Available',
+          data: {{ available | tojson }},
+          backgroundColor: '#10b981' // emerald
+        },
+        {
+          label: 'Occupied',
+          data: {{ occupied | tojson }},
+          backgroundColor: '#0f766e' // deep teal
+        }
+      ]
+    },
+    options: {
+      plugins: {
+        legend: { position: 'bottom' }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { stepSize: 1 }
+        }
+      }
+    }
+  });
+</script>
+
+{% endblock body_admin %}

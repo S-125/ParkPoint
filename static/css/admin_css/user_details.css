@@ -1,0 +1,84 @@
+/* user_details.css */
+
+/* Page Heading */
+h2 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #2c3e50;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Table Container */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Table Header */
+thead {
+  background: #2c3e50;
+  color: white;
+  font-weight: 600;
+}
+
+
+thead th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+
+/* Table Body */
+tbody td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s ease;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Row Hover Effect */
+tbody tr:hover {
+  background-color: #f9f9f9;
+  transform: scale(1.002);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  thead {
+    display: none;
+  }
+  tbody tr {
+    background: white;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  tbody td {
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+  }
+  tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+  }
+}

@@ -1,0 +1,66 @@
+{% extends 'user/user_base.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_css/dashboard.css') }}">
+{% endblock css %}
+
+{% block body_user %}
+<div class="chart-container" style="width: 80%; margin: auto; padding-top: 2rem; overflow-x: hidden;">
+    <h2 style="text-align: center;color: #2c3e50;">Summary of Hours Used Per Parking Spot</h2>
+     <div style="position: relative; height: 70vh; width: 80vw; display:flex;justify-content:center;"><canvas  id="spotUsageChart"></canvas></div>
+</div>
+{% endblock body_user %}
+
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% if lot_data %}
+<script>
+    const lotLabels = {{ lot_data | map(attribute='lot') | list | tojson }};
+    const lotHours = {{ lot_data | map(attribute='hours') | list | tojson }};
+
+    const ctx = document.getElementById('spotUsageChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: lotLabels,
+            datasets: [{
+                label: 'Hours Used',
+                data: lotHours,
+                        backgroundColor: [
+                                            '#0f766e', // deep teal
+                                            '#14b8a6', // light teal
+                                            '#10b981', // emerald
+                                            '#047857', // dark green
+                                            '#2dd4bf'  // aqua
+                                        ],
+                categoryPercentage: 0.8,
+                barPercentage:1,
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { display: false },
+                title: { display: false }
+            },
+            scales: {
+                x: {
+                    grid: { display: false }
+                },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Total Hours Used'
+                    }
+                }
+            }
+        }
+    });
+</script>
+{% else %}
+<p>No usage data available yet.</p>
+{% endif %}
+
+
+{% endblock script %}

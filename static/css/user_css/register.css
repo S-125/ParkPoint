@@ -1,0 +1,121 @@
+/* Page background */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f4f7fa; /* Light neutral */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+form{
+    padding: 25px 22px;
+}
+/* Form container */
+.form-container {
+    background: #ffffff;
+    padding: 25px 22px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 420px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Heading */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #1a3e73; /* Deep navy */
+}
+
+/* Form group */
+.form-group {
+    margin-bottom: 14px;
+}
+
+/* Labels */
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Inputs & textarea */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #d0d7e2;
+    outline: none;
+    background: #f9fbfd;
+    color: #333;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9aa3b1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #1a73e8;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(26, 115, 232, 0.2);
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 11px;
+    background: #1a73e8; /* Primary blue */
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.15s ease;
+}
+
+button:hover {
+    background: #155fc0;
+    transform: translateY(-1px);
+}
+
+/* Login link */
+.login-link {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

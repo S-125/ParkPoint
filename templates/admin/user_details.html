@@ -1,0 +1,33 @@
+{% extends 'admin/admin_base.html' %}
+{% block css %}
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/admin_css/user_details.css') }}"
+/>
+{% endblock css %}
+{% block body_admin %}
+    <h2>Registered Users</h2>
+    <table>
+    <thead>
+        <th style="border-radius:10px 0px 0px 0px;">ID</th>
+        <th>Email</th>
+        <th>Full Name</th>
+        <th>Address</th>
+        <th style="border-radius:0px 10px 0px 0px;">Pincode</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.full_name }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.pincode }}</td>
+        <td><a href="/admin/delete_user/{{user.id}}">Delete</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock body_admin %}

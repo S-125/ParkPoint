@@ -1,0 +1,46 @@
+{% extends 'admin/admin_base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_css/search.css') }}" />
+{% endblock css %}
+{% block body_admin %}
+
+  <form action="/admin/search" method="GET">
+    <label for="search_by">Search by:</label>
+    <select name="search_by" id="search_by">
+      <option value="user_id">User ID</option>
+      <option value="location">Location</option>
+      <option value="spot_id">Spot ID</option>
+    </select>
+    <input type="text" name="query" placeholder="Search string">
+    <button type="submit">Search</button>
+  </form>
+
+  <div class="lots-section">
+    {% if parking_lots %}
+      {% for lot in parking_lots %}
+        <div class="lot">
+          <h4>{{ lot.name }}</h4>
+          <div>{{ lot.prime_location }}</div>
+          <div>
+            Occupied: 
+            {{
+              lot.occupied_spots
+            }} / {{
+              lot.max_spots
+            }}
+          </div>
+          <div class="spots-grid">
+            {% for spot in lot.spots %}
+              <div class="spot {% if spot.status == 'O' %}occupied{% else %}available{% endif %}">
+                {{ spot.status }}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No parking lots found for this search.</p>
+    {% endif %}
+  </div>
+
+{% endblock body_admin %}

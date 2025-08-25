@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/admin_css/admin_base.css') }}"
+  />
+  {% block css %}
+    
+  {% endblock css %}
+    <title>ParkPoint :Admin</title>
+</head>
+<body>
+    <nav>
+         <p style="font-size:20px;">Welcome to Admin</p>
+         <div class="group">
+            <a href="/admin/dashboard">Home</a>
+            <a href="/admin/user_details">Users</a>
+            <a href="/admin/search">Search</a>
+            <a href="/admin/summary">Summary</a>
+            <a href="/logout" style="border-right:none !important;">Logout</a>
+         </div>
+         <a href="/admin/profile" style="text-decoration:none; color:black;">Edit Profile</a>
+    </nav>
+    <main>
+    {% block body_admin %}
+        
+    {% endblock body_admin %}
+    </main>
+</body>
+</html>

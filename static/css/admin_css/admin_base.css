@@ -1,0 +1,189 @@
+/* user_base.css - Blue theme to match login */
+
+/* Reset defaults */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+}
+
+/* Navigation bar */
+nav {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af); /* Same gradient as login */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  color: white;
+  flex-wrap: wrap;
+}
+
+nav p {
+  margin: 0;
+  font-weight: bold;
+}
+
+nav .group {
+  display: flex;
+  align-items: center;
+}
+
+nav .group a {
+  color: white;
+  padding: 8px 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+nav .group a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+nav > a {
+  background-color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav > a:hover {
+  background-color: #eee;
+}
+
+/* Main content area */
+main {
+  padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav .group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav .group a {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* ====== Dashboard Container ====== */
+.dashboard-content {
+    padding: 2rem;
+    background: linear-gradient(to bottom right, #f8fbff, #eef5ff);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ====== Parking Lots Wrapper ====== */
+.parkinglots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* ====== Lot Card ====== */
+.lot_card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lot_card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.lot_card h2 {
+    color: #1f4e8c;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ====== Edit & Delete Links ====== */
+.lot_card a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lot_card a[href*="edit_lot"] {
+    background: #eaf3ff;
+    color: #1f4e8c;
+}
+.lot_card a[href*="edit_lot"]:hover {
+    background: #c9e1ff;
+}
+
+.lot_card a[href*="delete_lot"] {
+    background: #ffeaea;
+    color: #d63031;
+}
+.lot_card a[href*="delete_lot"]:hover {
+    background: #ffcccc;
+}
+
+/* ====== Spot Status Boxes ====== */
+.spotbox {
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+.spotbox:hover {
+    transform: scale(1.05);
+}
+
+/* Status-specific colors */
+.spotbox.A {
+    background: #e3fcef;
+    color: #2e7d32;
+}
+.spotbox.O {
+    background: #ffe5e5;
+    color: #c62828;
+}
+
+
+/* ====== Add Lot Button ====== */
+.add-btn {
+    margin-top: 2rem;
+    text-align: center;
+}
+.add-btn a {
+    background: #1f4e8c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+.add-btn a:hover {
+    background: #163a68;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+    .parkinglots {
+        grid-template-columns: 1fr;
+    }
+}

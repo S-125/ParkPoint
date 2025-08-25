@@ -1,0 +1,104 @@
+/* login.css */
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  /* background: linear-gradient(135deg, #2c3e50, #4ca1af); */
+  background-image: url('../images/parkingbg.jpg');
+  background-position: center;
+  background-repeat: no-repeat ;
+  background-size:cover ;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  display: block;
+  max-width: 250px;
+  margin: 0 auto 15px;
+}
+
+/* Login Box */
+.login-box {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 380px; 
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column; 
+}
+
+label {
+  margin: 10px 0 5px;
+  font-size: 14px;
+  color: #555;
+  
+  
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.3s;
+  
+}
+
+input:focus {
+  border-color: #4ca1af;
+}
+
+/* Button Styles */
+button {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #4ca1af;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3b8591;
+}
+
+/* Create Account Link */
+.create-account {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #4ca1af;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.create-account:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+  }
+}

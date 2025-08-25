@@ -1,0 +1,92 @@
+/* General container */
+.details {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.details h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #374151; /* Dark gray */
+}
+
+/* Detail rows */
+.detail {
+  margin-bottom: 20px;
+}
+
+.detail label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #4b5563; /* Medium gray */
+}
+
+.detail-box {
+  display: block;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #374151;
+  text-decoration: none;
+}
+
+.detail a.detail-box {
+  color: #1d4ed8; /* Primary blue */
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.detail a.detail-box:hover {
+  background-color: #e0e7ff;
+}
+
+/* Button Row */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+/* Buttons */
+.button-row button,
+.button-row a button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Delete button */
+.button-row form button {
+  background-color: #dc2626; /* Red */
+  color: white;
+}
+
+.button-row form button:hover {
+  background-color: #b91c1c;
+}
+
+/* Close button */
+.button-row a button {
+  background-color: #6b7280; /* Neutral gray */
+  color: white;
+}
+
+.button-row a button:hover {
+  background-color: #4b5563;
+}

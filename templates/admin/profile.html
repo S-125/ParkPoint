@@ -1,0 +1,29 @@
+{% extends 'admin/extra_base.html' %}
+{%block title%}Admin Profile{%endblock title%}
+{% block extra_css %}
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/admin_css/profile.css') }}"
+  />
+{% endblock extra_css %}
+{% block block_extra %}
+
+<form action="/admin/profile" method="post">
+    <h2>Admin Profile</h2>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" value="{{ admin.username }}" required>
+    <div id="usernameError"></div>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="{{ admin.email }}" required>
+    <div id="emailError"></div>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% for
+        category, message in messages %}
+        <div style="color: green">{{ message }}</div>
+        {% endfor %} {% endwith %}
+
+    <button type="submit">Save Changes</button>
+    <button type="button" onclick="window.location.href='/admin/dashboard'">Cancel</button>
+</form>
+{% endblock block_extra %}

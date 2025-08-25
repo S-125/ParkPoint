@@ -1,0 +1,37 @@
+{% extends "admin/extra_base.html" %}
+{%block title%}Spot Details{%endblock title%}
+{% block extra_css %}
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/admin_css/spot_details.css') }}"
+  />
+{% endblock extra_css %}
+
+{% block block_extra %}
+    
+
+  <div class="details">
+    <h2>View / Delete Parking Spot</h2>
+
+    <div class="detail">
+      <label for="id">ID</label>
+      <p class="detail-box">{{ spot.id }}</p>
+    </div>
+
+    <div class="detail">
+      <label for="status">Status</label>
+      <a href="/admin/occupied_details/{{spot.id}}" class="detail-box">{{ spot.status }}</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-row">
+      <form method="POST" action="/admin/delete_spot/{{ spot.id }}">
+        <button type="submit">Delete</button>
+      </form>
+      <a href="{{ url_for('admin_bp.admin_dashboard') }}">
+        <button type="button">Close</button>
+      </a>
+    </div>
+  </div>
+
+  {% endblock block_extra %}
