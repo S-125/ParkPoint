@@ -10,10 +10,16 @@ import os
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///parking.db'
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+raw_url = os.environ.get(
     "DATABASE_URL",
     "postgresql://neondb_owner:npg_MNcIUsPRh82d@ep-odd-grass-adr2zu51-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require"
 )
+
+# Force psycopg3
+if raw_url.startswith("postgresql://"):
+    raw_url = raw_url.replace("postgresql://", "postgresql+psycopg://", 1)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = raw_url
 bcrypt=Bcrypt(app)
 db.init_app(app)
 
