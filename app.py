@@ -4,10 +4,16 @@ from models import db, User, Admin
 from controllers.admin_routes import admin_bp
 from controllers.user_routes import user_bp
 from flask_bcrypt import Bcrypt
+import os
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///parking.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///parking.db'
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+    "DATABASE_URL",
+    "postgresql://neondb_owner:npg_MNcIUsPRh82d@ep-odd-grass-adr2zu51-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require"
+)
 bcrypt=Bcrypt(app)
 db.init_app(app)
 
