@@ -46,6 +46,7 @@
           <thead>
                   <tr>
                         <th style="border-radius:10px 0px 0px 0px;">Parking Lot Name</th>
+                        <th>Location</th>
                         <th>Address</th>
                         <th>Price</th>
                         <th>Available Spots</th>
@@ -57,6 +58,7 @@
                     {% if parking_lot.max_spots - parking_lot.occupied_spots > 0 %}
                     <tr>
                               <td>{{ parking_lot.name }}</td>
+                              <td>{{ parking_lot.prime_location }}</td>
                               <td>{{ parking_lot.address }}</td>
                               <td>{{ parking_lot.price }}</td>
                               <td>{{ parking_lot.max_spots - parking_lot.occupied_spots }}</td>
