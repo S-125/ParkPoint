@@ -29,14 +29,21 @@
       {% endwith %}
       <div style="display:flex; gap:5px;">
       <button type="submit" name="role" value="user" style="width:100%;">
-        Login as User
+        Login 
       </button>
-      <button type="submit" name="role" value="admin" style="width:100%;">
+      <!-- <button type="submit" name="role" value="admin" style="width:100%;">
         Login as Admin
-      </button>
+      </button> -->
       </div>
     </form>
     <a href="{{ url_for('user_bp.register') }}" class="create-account">Create Account?</a>
+   <div style="margin-top: 12px; padding: 8px; border: 1px solid #ddd; border-radius: 8px; background-color: #f8f9fa; color: #6c757d; font-size: 14px;">
+  <strong>Demo Admin Login:</strong><br>
+  Email: admin@example.com<br>
+  Password: admin123
+</div>
+
   </div>
+  
 </body>
 </html>

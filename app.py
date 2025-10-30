@@ -15,7 +15,7 @@ raw_url = os.environ.get(
     "postgresql://neondb_owner:npg_MNcIUsPRh82d@ep-odd-grass-adr2zu51-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require"
 )
 
-# Force psycopg3
+
 if raw_url.startswith("postgresql://"):
     raw_url = raw_url.replace("postgresql://", "postgresql+psycopg://", 1)
 
@@ -42,34 +42,34 @@ def home():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        # admin = Admin.query.filter_by(email=email).first()
-        # if admin and admin.password == password:
-        #     login_user(admin)
-        #     session['user_type'] = 'admin' 
-        #     return redirect(url_for('admin_bp.admin_dashboard'))
+        admin = Admin.query.filter_by(email=email).first()
+        if admin and admin.password == password:
+            login_user(admin)
+            session['user_type'] = 'admin' 
+            return redirect(url_for('admin_bp.admin_dashboard'))
         
         
-        # user = User.query.filter_by(email=email).first()
+        user = User.query.filter_by(email=email).first()
 
-        # if user and user.password == password:
-        #     login_user(user)
-        #     session['user_type'] = 'user'
-        #     return redirect(url_for('user_bp.user_dashboard'))
+        if user and user.password == password:
+            login_user(user)
+            session['user_type'] = 'user'
+            return redirect(url_for('user_bp.user_dashboard'))
         
-        role=request.form.get('role')
+        # role=request.form.get('role')
         
-        if role=='admin':
-            admin=Admin.query.filter_by(email=email).first()
-            if admin and admin.password==password:
-                login_user(admin)
-                session['user_type']='admin'
-                return redirect(url_for('admin_bp.admin_dashboard'))
-        elif role=='user':
-             user=User.query.filter_by(email=email).first()
-             if user and bcrypt.check_password_hash(user.password,password):
-                login_user(user)
-                session['user_type']='user'
-                return redirect(url_for('user_bp.user_dashboard'))
+        # if role=='admin':
+        #     admin=Admin.query.filter_by(email=email).first()
+        #     if admin and admin.password==password:
+        #         login_user(admin)
+        #         session['user_type']='admin'
+        #         return redirect(url_for('admin_bp.admin_dashboard'))
+        # elif role=='user':
+        #      user=User.query.filter_by(email=email).first()
+        #      if user and bcrypt.check_password_hash(user.password,password):
+        #         login_user(user)
+        #         session['user_type']='user'
+        #         return redirect(url_for('user_bp.user_dashboard'))
         
         flash('Invalid email or password', 'danger')
         return redirect(url_for('home'))
